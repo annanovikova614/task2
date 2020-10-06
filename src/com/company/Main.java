@@ -10,7 +10,7 @@ public class Main {
     public static int readYear()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите год:");
+        System.out.println("Введите год:");
         return scanner.nextInt();
     }
     public static int calculateCountOfDaysInYear(int year)
