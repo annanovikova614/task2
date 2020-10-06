@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {               
-        System.out.print(calculateCountOfDaysInYear(readYear()));
+        System.out.print("Количество дней = " + calculateCountOfDaysInYear(readYear()));
     }
     public static int readYear()
     {
