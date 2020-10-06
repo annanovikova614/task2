@@ -6,23 +6,16 @@ public class Main {
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите год:");
-        int year = scanner.nextInt();
-        double intercalaryOrCommon = intercalaryOrCommon(year);
-        System.out.print(intercalaryOrCommon(year));
+               
+        System.out.print(calculateCountOfDaysInYear(readYear()));
     }
-        public static int intercalaryOrCommon(int year)
-        {
-            if ((year % 4 != 0)||(year % 100 ==0 && year % 400 !=0))
-            {
-                return 365;
-            }
-            else
-            {
-                return 366;
-            }
-
-        }
-
-
+    public static int readYear()
+    {
+        System.out.print("Введите год:");
+        return scanner.nextInt();
+    }
+    public static int calculateCountOfDaysInYear(int year)
+    {
+        return ((year % 4 != 0)||(year % 100 == 0 && year % 400 != 0)) ? 365 : 366;
+    }
 }
