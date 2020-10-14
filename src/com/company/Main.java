@@ -3,18 +3,30 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args)
-    {               
-        System.out.print("Количество дней = " + calculateCountOfDaysInYear(readYear()));
+    {
+        printCountOfDaysInYear();
     }
+
     public static int readYear()
     {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите год:");
-        return scanner.nextInt();
+        int year = scanner.nextInt();
+        return year;
     }
+
+    public static void printCountOfDaysInYear()
+    {
+        int year = readYear();
+        int countOfDaysInYear = calculateCountOfDaysInYear(year);
+       System.out.print("Количество дней = " + countOfDaysInYear);
+    }
+
     public static int calculateCountOfDaysInYear(int year)
     {
-        return ((year % 4 != 0)||(year % 100 == 0 && year % 400 != 0)) ? 365 : 366;
+        int countOfDaysInYear = ((year % 4 != 0)||(year % 100 == 0 && year % 400 != 0)) ? 365 : 366;
+        return countOfDaysInYear;
     }
 }
