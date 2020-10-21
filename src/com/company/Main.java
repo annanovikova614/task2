@@ -21,7 +21,7 @@ public class Main {
     {
         int year = readYear();
         int countOfDaysInYear = calculateCountOfDaysInYear(year);
-       System.out.print("Количество дней = " + countOfDaysInYear);
+       System.out.print("Количество дней = %d", countOfDaysInYear);
     }
 
     public static int calculateCountOfDaysInYear(int year)
