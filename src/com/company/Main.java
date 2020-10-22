@@ -4,29 +4,23 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args)
-    {
-        printCountOfDaysInYear();
+    public static void main(String[] args) {
+        int year = readYear("год");
+        int result = calculateCountOfDaysInYear(year);
+        printCountOfDaysInYear(result);
     }
 
-    public static int readYear()
-    {
+    private static int readYear(String string) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите год:");
-        int year = scanner.nextInt();
-        return year;
+        System.out.printf("Введите %s:", string);
+        return scanner.nextInt();
     }
 
-    public static void printCountOfDaysInYear()
-    {
-        int year = readYear();
-        int countOfDaysInYear = calculateCountOfDaysInYear(year);
-       System.out.print("Количество дней = %d", countOfDaysInYear);
+    private static void printCountOfDaysInYear(int result) {
+        System.out.printf("Колличество дней в году %d", result);
     }
 
-    public static int calculateCountOfDaysInYear(int year)
-    {
-        int countOfDaysInYear = ((year % 4 != 0)||(year % 100 == 0 && year % 400 != 0)) ? 365 : 366;
-        return countOfDaysInYear;
+    public static int calculateCountOfDaysInYear(int year) {
+        return ((year % 4 != 0) || (year % 100 == 0 && year % 400 != 0)) ? 365 : 366;
     }
 }
