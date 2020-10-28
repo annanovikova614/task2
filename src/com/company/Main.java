@@ -1,32 +1,25 @@
-package com.company; 
- 
-import java.util.Scanner; 
- 
-public class Main { 
+package com.company;
 
-    public static void main(String[] args) { 
-        int year = readYear("год"); 
-        int result = calculateCountOfDaysInYear(year); 
-        printCountOfDaysInYear(result); 
-        writeLeapOrNonLeapYear(result); 
-    } 
- 
-    private static int readYear(String string) { 
-        Scanner scanner = new Scanner(System.in); 
-        System.out.printf("Введите %s: ", string); 
-        return scanner.nextInt(); 
-    } 
+import java.util.Scanner;
 
-    private static void printCountOfDaysInYear(int result) { 
-        System.out.printf("Количество дней в году %d\n", result); 
-    } 
+public class Main {
 
-    private static void writeLeapOrNonLeapYear(int result) {
-        System.out.println("Год " + ((result == 365) ? "не" : "") + "високосный");
-    } 
+    public static void main(String[] args) {
+        int year = readYear("год");
+        writeCountDaysYear(year);
+    }
 
-    private static int calculateCountOfDaysInYear(int year) { 
-        return ((year % 4 != 0) || (year % 100 == 0 && year % 400 != 0)) ? 365 : 366; 
-    } 
+    private static int readYear(String string) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.printf("Введите %s: ", string);
+        return scanner.nextInt();
+    }
+
+    private static void writeCountDaysYear(int year) {
+        System.out.println("В году " + (isNonLeapYear(year) ? 365 : 366) + " дней");
+    }
+
+    private static boolean isNonLeapYear(int year) {
+        return (year % 4 != 0) || (year % 100 == 0 && year % 400 != 0);
+    }
 }
-
