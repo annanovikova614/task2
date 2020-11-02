@@ -6,7 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         int year = readYear("год");
-        writeCountDaysYear(year);
+        boolean countDaysYear = calcCountDaysYear(year);
+        int result = chooseLeapYearOrNonLeapYear(countDaysYear);
+        writeCountDaysYear(result);
     }
 
     private static int readYear(String string) {
@@ -15,11 +17,15 @@ public class Main {
         return scanner.nextInt();
     }
 
-    private static void writeCountDaysYear(int year) {
-        System.out.println("В году " + (isNonLeapYear(year) ? 365 : 366) + " дней");
+    private static void writeCountDaysYear(int result) {
+        System.out.printf("В году %d дней", result);
     }
 
-    private static boolean isNonLeapYear(int year) {
+    private static int chooseLeapYearOrNonLeapYear(boolean countDaysYear) {
+        return  countDaysYear ? 365 : 366;
+    }
+
+    private static boolean calcCountDaysYear(int year) {
         return (year % 4 != 0) || (year % 100 == 0 && year % 400 != 0);
     }
 }
